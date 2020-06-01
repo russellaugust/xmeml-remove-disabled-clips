@@ -1,7 +1,7 @@
 import xml.etree.ElementTree as ET
 from copy import deepcopy
 
-tree = ET.parse('/Users/russellanderson/Desktop/XML Testing/REEL 1_25_TEST_NESTED AND ONE EXTRA.xml')
+tree = ET.parse('sample_xmls/REEL 1_25_TEST_10 CLIPS.xml')
 root = tree.getroot()
 
 unique_files = [] # storage for the file element. this MAY need to exist outside this scope. not sure how this works across sequences yet. 
@@ -37,15 +37,11 @@ for track in root.findall('./sequence/media/video/track'):
             track.remove(clipitem)
 
 for track in root.findall('./sequence/media/audio/track'):
-    print ('=============== TRACK ================')
     for clipitem in track.findall('clipitem'):
-        print ('============== CLIP =================')
-
+        
         isUnique = False
-
         file_current = clipitem.find('file') # get the unique file-d
         fileid_current = file_current.attrib['id'] # get the unique file-d
-        
         filename = clipitem.find('file/name') # this is more important when i need check if the file content exists
 
         # is file present in files. Add the first, otherwise...
@@ -71,4 +67,4 @@ for track in root.findall('./sequence/media/audio/track'):
         if (enabled.text == 'TRUE'):
             track.remove(clipitem)
 
-tree.write('/Users/russellanderson/Desktop/XML Testing/OUTPUT.xml')
+tree.write('sample_xmls_output/OUTPUT.xml')
