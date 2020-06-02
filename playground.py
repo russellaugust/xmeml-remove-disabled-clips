@@ -1,7 +1,7 @@
 import xml.etree.ElementTree as ET
 from copy import deepcopy
 
-tree = ET.parse('/Users/russellanderson/Desktop/XML Testing/REEL 1_25_TEST_NESTED AND ONE EXTRA.xml')
+tree = ET.parse('sample_xmls/REEL 1_25_TEST_NESTED AND ONE EXTRA.xml')
 root = tree.getroot()
 
 for track in root.findall('./sequence/media/video/track'):
