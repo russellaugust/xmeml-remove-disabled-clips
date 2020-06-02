@@ -1,7 +1,7 @@
 import xml.etree.ElementTree as ET
 from copy import deepcopy
 
-tree = ET.parse('REEL 2_22.xml')
+tree = ET.parse('INPUT.xml')
 root = tree.getroot()
 
 unique_files = [] # storage for the file element.
