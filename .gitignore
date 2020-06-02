@@ -130,4 +130,5 @@ dmypy.json
 
 # Custom
 sample*/
+playground.py
 .DS_Store
